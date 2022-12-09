@@ -12,11 +12,13 @@ import (
 )
 
 var generatedId string
-var form3cli form3_client.Form3_API
+
+var form3cli = form3_client.Form3_API{
+	Api_host_url:     os.Getenv("API_HOST"),
+	Api_host_version: os.Getenv("API_VERSION"),
+}
 
 func TestCreateAccount(t *testing.T) {
-	form3cli.Api_host_url = os.Getenv("API_HOST")
-	form3cli.Api_host_version = os.Getenv("API_VERSION")
 
 	rand.Seed(time.Now().UnixNano())
 	var inputAccount form3_client.AccountData
@@ -74,8 +76,6 @@ func TestDeleteAccount(t *testing.T) {
 }
 
 func TestCreateAccountFail(t *testing.T) {
-	form3cli.Api_host_url = os.Getenv("API_HOST")
-	form3cli.Api_host_version = os.Getenv("API_VERSION")
 
 	rand.Seed(time.Now().UnixNano())
 	var inputAccount form3_client.AccountData
@@ -118,7 +118,6 @@ func TestFetchAccountFail(t *testing.T) {
 func TestDeleteAccountFail(t *testing.T) {
 	resp := form3cli.DeleteAccount("")
 	t.Log("Id is ", generatedId)
-	t.Log(resp.Status)
 	if resp.Status != "Failure" {
 		t.Errorf("Error in delete account")
 	}
