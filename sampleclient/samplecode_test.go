@@ -1,3 +1,6 @@
+//go:build darwin || linux
+// +build darwin linux
+
 package sampleclient
 
 import (
@@ -43,7 +46,6 @@ func TestCreateAccount(t *testing.T) {
 	resp := form3cli.CreateAccount(inputAccount)
 
 	if resp.Status != "Success" {
-		log.Println(resp.Data)
 		t.Errorf("Error in create account")
 		t.Fail()
 	}
@@ -51,7 +53,6 @@ func TestCreateAccount(t *testing.T) {
 	if resp.Data.ID != "" {
 		generatedId = resp.Data.ID
 	}
-
 	log.Println("Generated Id ---" + resp.Data.ID)
 }
 
@@ -94,7 +95,7 @@ func TestCreateAccountFail(t *testing.T) {
 	inputAccount.Attributes = &accoutAttrs
 
 	resp := form3cli.CreateAccount(inputAccount)
-	if resp.Status != "Failure" {
+	if resp.ErrorCode != 400 {
 		t.Errorf("Creating account with invalid data.")
 		t.Fail()
 	}
@@ -113,7 +114,6 @@ func TestFetchAccountFailParsing(t *testing.T) {
 	if resp.ErrorMessage != "Error while unmarshalling response body" {
 		t.Errorf("Error in fetch account")
 	}
-
 }
 
 func TestDeleteAccountFail(t *testing.T) {

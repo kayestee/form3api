@@ -1,4 +1,4 @@
 github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
 github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
-github.com/kayestee/f3_client v0.2.0 h1:zdehQkJG6mD/rPN6vGSBd8QcAT/z9G+5nLqeqN/kUBg=
-github.com/kayestee/f3_client v0.2.0/go.mod h1:gX4kudf1Xd9D1qAGfUG+bLhnUtv5VaoU+Y3EmtkfK+Y=
+github.com/kayestee/f3_client v1.0.2 h1:jro6fW1NtitqaFogPBURf60p4P6OEdb9UPTcv/LA7cc=
+github.com/kayestee/f3_client v1.0.2/go.mod h1:3y7kVJHVNttYTzsbnnownyT806kO3dNJErtnApIrhHk=
