@@ -57,8 +57,6 @@ func TestCreateAccount(t *testing.T) {
 
 func TestFetchAccount(t *testing.T) {
 	resp := form3cli.FetchAccount(generatedId)
-	t.Log(resp)
-
 	if resp.Status != "Success" {
 		t.Errorf("Error in fetch account")
 	}
@@ -67,8 +65,6 @@ func TestFetchAccount(t *testing.T) {
 
 func TestDeleteAccount(t *testing.T) {
 	resp := form3cli.DeleteAccount(generatedId)
-	t.Log("Id is ", generatedId)
-	t.Log(resp)
 	if resp.Status != "Success" {
 		t.Errorf("Error in delete account")
 	}
@@ -98,18 +94,23 @@ func TestCreateAccountFail(t *testing.T) {
 	inputAccount.Attributes = &accoutAttrs
 
 	resp := form3cli.CreateAccount(inputAccount)
-	log.Println(resp)
 	if resp.Status != "Failure" {
-		log.Println(resp.Data)
 		t.Errorf("Creating account with invalid data.")
 		t.Fail()
 	}
 }
 
 func TestFetchAccountFail(t *testing.T) {
+	resp := form3cli.FetchAccount("123123213")
+	if resp.ErrorCode != 400 {
+		t.Errorf("Error in fetch account")
+	}
+
+}
+
+func TestFetchAccountFailParsing(t *testing.T) {
 	resp := form3cli.FetchAccount("")
-	t.Log(resp)
-	if resp.Status != "Failure" {
+	if resp.ErrorMessage != "Error while unmarshalling response body" {
 		t.Errorf("Error in fetch account")
 	}
 

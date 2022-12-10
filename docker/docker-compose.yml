@@ -53,9 +53,8 @@ services:
       - API_HOST=http://accountapi:8080
       - API_VERSION=v1
     healthcheck:
-#      test: [ "CMD", "curl", "--fail","http://accountapi:8080/v1/organisation/accounts", "||" , "exit", "1" ]
-      test: curl --fail  http://accountapi:8080/v1/organisation/accounts || echo $? || exit 1
+      test: [ "CMD", "curl", "--fail","http://accountapi:8080/v1/organisation/accounts", "||" , "exit", "1" ]
       interval: 60s
       timeout: 15s
       retries: 3
-    restart: always
+    restart: on-failure

@@ -8,7 +8,6 @@ RUN go test -v -c -o /samplecode_test
 CMD ["/samplecode_test", "-test.v"]
 
 #FROM form3interviewapi as build
-#RUN go build -o /form3interviewapi .
 #CMD ["/form3interviewapi"]
 
 
