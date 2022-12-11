@@ -1,5 +1,5 @@
-//go:build darwin || linux
-// +build darwin linux
+//go:build darwin || linux || windows
+// +build darwin linux windows
 
 package sampleclient
 
@@ -50,10 +50,11 @@ func TestCreateAccount(t *testing.T) {
 		t.Fail()
 	}
 
-	if resp.Data.ID != "" {
-		generatedId = resp.Data.ID
+	if resp.Data != nil {
+		generatedId = resp.Data[0].ID
+		log.Println("Generated Id ---" + resp.Data[0].ID)
 	}
-	log.Println("Generated Id ---" + resp.Data.ID)
+
 }
 
 func TestFetchAccount(t *testing.T) {
@@ -111,15 +112,22 @@ func TestFetchAccountFail(t *testing.T) {
 
 func TestFetchAccountFailParsing(t *testing.T) {
 	resp := form3cli.FetchAccount("")
-	if resp.ErrorMessage != "Error while unmarshalling response body" {
+
+	if resp.Status == "Failure" && resp.ErrorMessage != "Error while unmarshalling response body" {
+		t.Errorf("Error in fetch account")
+	}
+}
+
+func TestFetchAllAccount(t *testing.T) {
+	resp := form3cli.FetchAllAccounts()
+	if resp.StatusCode != 200 && len(resp.Data) > 0 {
 		t.Errorf("Error in fetch account")
 	}
 }
 
 func TestDeleteAccountFail(t *testing.T) {
 	resp := form3cli.DeleteAccount("")
-	t.Log("Id is ", generatedId)
-	if resp.Status != "Failure" {
+	if resp.ErrorCode != 404 {
 		t.Errorf("Error in delete account")
 	}
 

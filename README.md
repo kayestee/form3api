@@ -6,11 +6,11 @@ git clone https://github.com/kayestee/form3interviewapi.git
 
 
 ## Instructions
-Include github.com/kayestee/f3_client in your go.mod file as require dependencies.
-And run below to get the latest client API. 
+* Include github.com/kayestee/f3_client in your go.mod file as require dependencies.
+* And run below cmd to get the latest client API. 
 go mod tidy 
 
-### Running in docker
+## Running in docker
 To run the sampleclient folder in docker execute the docker-compose command inside docker folder.
 
 ``` docker-compose -f docker-compose.yml up ```
@@ -18,9 +18,11 @@ To run the sampleclient folder in docker execute the docker-compose command insi
 The tests results will be wriiten to the console log. 
 
 ## API's list
-The sample go file uses go test package to demonstrate the form3 client API.
+* The sample go file uses go test package to demonstrate the form3 client API endpoints Create, Fetch and Delete.
 
-Here is a sample JSON for create API request:
+* The test results are logged to the console. This sample just prints each test result as they are run and not a report. 
+
+* Here is a sample JSON for create API request:
 ``` {
   "data": {
     "id": "{{random_guid}}",
@@ -42,6 +44,6 @@ Here is a sample JSON for create API request:
 }
 ```
 
-Fetch and Delete uses the account Id created from the above API call.
+Fetch and Delete uses the account Id created from the above create API call.
 
 Reference:: https://www.api-docs.form3.tech/api/tutorials/getting-started/send-a-payment/create-the-payment
