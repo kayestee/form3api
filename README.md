@@ -14,6 +14,7 @@ go mod tidy
 To run the sampleclient folder in docker execute the docker-compose command inside docker folder.
 
 ``` cd docker ```
+
 ``` docker-compose -f docker-compose.yml up ```
 
 The tests results will be logged to the console log. 
