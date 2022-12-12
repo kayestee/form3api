@@ -1,5 +1,5 @@
 # Form3 Sample client execution code
-This is just a sample project that is used to sample possible API endpoints for form3 client API library.
+This is my first Go program. This is a sample project that is used to test form3 client API library.
 https://github.com/kayestee/f3_client.
 Clone the project to your local. 
 git clone https://github.com/kayestee/form3interviewapi.git
@@ -15,7 +15,7 @@ To run the sampleclient folder in docker execute the docker-compose command insi
 
 ``` docker-compose -f docker-compose.yml up ```
 
-The tests results will be wriiten to the console log. 
+The tests results will be logged to the console log. 
 
 ## API's list
 * The sample go file uses go test package to demonstrate the form3 client API endpoints Create, Fetch and Delete.
@@ -46,4 +46,4 @@ The tests results will be wriiten to the console log.
 
 Fetch and Delete uses the account Id created from the above create API call.
 
-Reference:: https://www.api-docs.form3.tech/api/tutorials/getting-started/send-a-payment/create-the-payment
+Reference:: https://www.api-docs.form3.tech/api/tutorials/getting-started/create-an-account/bank-accounts-at-form3
