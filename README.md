@@ -2,7 +2,7 @@
 This is my first Go program. This is a sample project that is used to test form3 client API library.
 https://github.com/kayestee/f3_client.
 Clone the project to your local. 
-git clone https://github.com/kayestee/form3interviewapi.git
+```git clone https://github.com/kayestee/form3interviewapi.git```
 
 
 ## Instructions
