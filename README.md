@@ -7,7 +7,7 @@ Clone the project to your local.
 
 ## Instructions
 * Include github.com/kayestee/f3_client in your go.mod file as require dependencies.
-* And run below cmd to get the latest client API. 
+* And run below cmd to get the latest client API from within sampleclient folder. 
 ```go mod download ```
 
 ## Running in docker
