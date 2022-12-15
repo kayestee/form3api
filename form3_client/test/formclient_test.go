@@ -5,7 +5,7 @@ package sampleclient
 
 import (
 	"github.com/google/uuid"
-	"github.com/kayestee/f3_client/form3_client"
+	"github.com/kayestee/f3_client"
 	"log"
 	"math/rand"
 	"os"
@@ -15,14 +15,12 @@ import (
 )
 
 var generatedId string
-
 var form3cli = form3_client.Form3_API{
 	Api_host_url:     os.Getenv("API_HOST"),
 	Api_host_version: os.Getenv("API_VERSION"),
 }
 
 func TestCreateAccount(t *testing.T) {
-
 	rand.Seed(time.Now().UnixNano())
 	var inputAccount form3_client.AccountData
 	inputAccount.ID = uuid.New().String()

@@ -45,8 +45,8 @@ services:
     image: form3_client:latest
     container_name: form3interviewapi
     build:
-      context: ../sampleclient
-      dockerfile: Dockerfile
+      context: ../form3_client
+      dockerfile: ../form3_client/Dockerfile
     depends_on:
       - accountapi
     environment:
