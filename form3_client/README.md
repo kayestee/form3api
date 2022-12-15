@@ -12,6 +12,8 @@ To run the form3 client in docker execute the docker-compose command inside the 
 ``` docker-compose -f docker-compose.yml up ```
 
 The tests results will be logged to the console log. 
+Note: During the first docker compose run some tests may fail because the form3 accountapi is not ready yet. 
+In which case, please re-run the compose command. 
 
 ## API's list
 * The sample go file uses go test package to demonstrate the form3 client API endpoints Create, Fetch and Delete.
